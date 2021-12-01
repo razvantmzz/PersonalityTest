@@ -19,5 +19,10 @@ class QuestionViewModel(private val quizId:Int, private val questionId:Int) : Vi
 
     fun selectAnswer(id: Int) {
         _question.value = quizData.selectAnswer(questionId, id)
+        quizData.selectQuestion(question.value)
+    }
+
+    fun setSelectedQuestion() {
+        quizData.selectQuestion(question.value)
     }
 }

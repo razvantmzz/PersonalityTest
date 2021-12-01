@@ -28,11 +28,16 @@ class QuizData(private val quizId: Int) : KoinComponent, CoroutineScope {
         MutableLiveData()
     }
 
+    private val _selectedQuestion: MutableLiveData<Question> by lazy {
+        MutableLiveData()
+    }
+
     init {
         fetchQuiz()
     }
 
     val quiz: LiveData<Quiz> = _quiz
+    val selectedQuestion: LiveData<Question> = _selectedQuestion
 
     fun getQuestionById(questionId: Int): Question? {
         return quiz.value?.questions?.firstOrNull { question -> question.id == questionId}
@@ -52,5 +57,9 @@ class QuizData(private val quizId: Int) : KoinComponent, CoroutineScope {
                 answer.isSelected = answer.id == answerId
             }
         }
+    }
+
+    fun selectQuestion(question: Question?) {
+        _selectedQuestion.postValue(question)
     }
 }

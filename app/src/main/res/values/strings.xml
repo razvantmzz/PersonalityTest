@@ -3,4 +3,6 @@
     <string name="landing_page_title">Are you an introvert or an extrovert?</string>
     <string name="landing_page_subtitle">Take this quiz and find out!</string>
     <string name="landing_page_start_quiz">Start quiz</string>
+    <string name="fragment_quiz_back_btn">Back</string>
+    <string name="fragment_quiz_next_btn">Next</string>
 </resources>

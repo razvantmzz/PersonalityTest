@@ -1,7 +1,9 @@
 package com.razvantmz.personalitytest.ui.quiz
 
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.razvantmz.personalitytest.databinding.FragmentQuizBinding
@@ -19,7 +21,18 @@ class QuizFragment : BaseFragment<FragmentQuizBinding>() {
     }
 
     override fun setUpViews() {
-
+        binding?.apply {
+            toolbar.setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+            quizViewPager.isUserInputEnabled = false
+            nextBtn.setOnClickListener {
+                quizViewPager.currentItem = quizViewPager.currentItem + 1
+            }
+            backBtn.setOnClickListener {
+                quizViewPager.currentItem = quizViewPager.currentItem - 1
+            }
+        }
     }
 
     override fun setUpObservers() {
@@ -29,6 +42,14 @@ class QuizFragment : BaseFragment<FragmentQuizBinding>() {
                 quizViewPager.adapter = adapter
                 toolbar.title = it.title
             }
+        }
+
+        viewModel.backBtnVisibility.observe(viewLifecycleOwner) {
+            binding?.backBtn?.isVisible = it
+        }
+
+        viewModel.nextBtnVisibility.observe(viewLifecycleOwner) {
+            binding?.nextBtn?.isVisible = it
         }
     }
 }

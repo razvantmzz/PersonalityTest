@@ -40,6 +40,11 @@ class QuestionFragment : BaseFragment<FragmentQuestionBinding>() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.setSelectedQuestion()
+    }
+
     override fun setBinding(): FragmentQuestionBinding {
         return FragmentQuestionBinding.inflate(layoutInflater)
     }
