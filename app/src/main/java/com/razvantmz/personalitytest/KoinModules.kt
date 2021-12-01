@@ -5,6 +5,7 @@ import com.razvantmz.personalitytest.repository.QuizRepositoryImpl
 import com.razvantmz.personalitytest.ui.landing.LandingViewModel
 import com.razvantmz.personalitytest.ui.quiz.QuestionViewModel
 import com.razvantmz.personalitytest.ui.quiz.QuizData
+import com.razvantmz.personalitytest.ui.quiz.QuizResultsViewModel
 import com.razvantmz.personalitytest.ui.quiz.QuizViewModel
 import com.razvantmz.personalitytest.ui.splashscreen.SplashViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -18,6 +19,7 @@ val modules = module {
     viewModel { (quizId:Int, questionId:Int) -> QuestionViewModel(quizId, questionId) }
     viewModel { LandingViewModel() }
     viewModel { (quizId:Int) -> QuizViewModel(quizId) }
+    viewModel { (quizId:Int) -> QuizResultsViewModel(quizId) }
 
     scope(named(QuizData.scopedName)) {
         scoped { (quizId: Int) -> QuizData(quizId) }

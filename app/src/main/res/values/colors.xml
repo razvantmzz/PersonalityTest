@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background">#E9C891</color>
+    <color name="toolbar_background">#D06224</color>
 
     <color name="primary_button_start_color">#D06224</color>
     <color name="primary_button_end_color">#AE431E</color>

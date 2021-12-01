@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#D06224"
+        android:background="@color/toolbar_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,30 +26,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="22dp"
-        android:text="@string/fragment_quiz_back_btn"
+        android:background="@android:color/transparent"
         android:drawablePadding="2dip"
-        android:background="@null"
+        android:text="@string/fragment_quiz_back_btn"
+        android:textColor="@color/black"
         app:icon="@drawable/ic_back"
         app:iconGravity="textStart"
+        app:iconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-   <Button
-       android:id="@+id/next_btn"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_margin="22dp"
-       android:text="@string/fragment_quiz_next_btn"
-       android:drawablePadding="2dip"
-       android:background="@null"
-       app:icon="@drawable/ic_next"
-       app:iconGravity="textEnd"
-       app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintEnd_toEndOf="parent" />
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="22dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="2dip"
+        android:text="@string/fragment_quiz_next_btn"
+        android:textColor="@color/black"
+        app:icon="@drawable/ic_next"
+        app:iconGravity="textEnd"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

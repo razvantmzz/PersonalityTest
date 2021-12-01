@@ -31,9 +31,4 @@ class QuizViewModel( val quizId: Int) : ViewModel(), KoinComponent {
             question.answers.any { answer -> answer.isSelected } && currentQuestionIndex.value != quiz.value?.questions?.count() ?: 0 - 1
         } ?: false
     }
-
-    override fun onCleared() {
-        getKoin().getOrCreateScope(QuizData.scopedId, named(QuizData.scopedName)).close()
-        super.onCleared()
-    }
 }

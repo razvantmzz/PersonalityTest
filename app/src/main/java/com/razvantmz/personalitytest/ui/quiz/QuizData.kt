@@ -2,6 +2,7 @@ package com.razvantmz.personalitytest.ui.quiz
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.razvantmz.personalitytest.Personality
 import com.razvantmz.personalitytest.models.Question
 import com.razvantmz.personalitytest.models.Quiz
 import com.razvantmz.personalitytest.repository.QuizRepository
@@ -61,5 +62,16 @@ class QuizData(private val quizId: Int) : KoinComponent, CoroutineScope {
 
     fun selectQuestion(question: Question?) {
         _selectedQuestion.postValue(question)
+    }
+
+    fun getQuizResult(): Personality {
+        val personalityTraitSum =
+            quiz.value?.questions?.mapNotNull { question -> question.answers.firstOrNull { answer -> answer.isSelected } }
+            ?.sumOf { selectAnswer -> selectAnswer.personalityTrait } ?: 0
+        return when {
+            personalityTraitSum > 0 -> Personality.Introverted
+            personalityTraitSum < 0 -> Personality.Extroverted
+            else -> Personality.IntrovertedExtrovert
+        }
     }
 }
