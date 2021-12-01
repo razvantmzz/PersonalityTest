@@ -14,7 +14,11 @@ class LandingFragment : BaseFragment<FragmentLandingBinding>() {
 
     override fun setUpViews() {
         binding?.btnStartQuiz?.setOnClickListener {
-            findNavController().navigate(LandingFragmentDirections.actionLandingFragmentToQuizFragment(viewModel.quizId))
+            findNavController().navigate(
+                LandingFragmentDirections.actionLandingFragmentToQuizFragment(
+                    viewModel.quizId
+                )
+            )
         }
     }
 

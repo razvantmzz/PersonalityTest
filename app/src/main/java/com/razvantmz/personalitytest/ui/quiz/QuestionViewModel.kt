@@ -8,7 +8,7 @@ import org.koin.core.parameter.parametersOf
 import org.koin.core.qualifier.named
 import org.koin.java.KoinJavaComponent.getKoin
 
-class QuestionViewModel(private val quizId:Int, private val questionId:Int) : ViewModel() {
+class QuestionViewModel(private val quizId: Int, private val questionId: Int) : ViewModel() {
     private val quizData = getKoin().getOrCreateScope(QuizData.scopedId, named(QuizData.scopedName))
         .get<QuizData> { parametersOf(quizId) }
 

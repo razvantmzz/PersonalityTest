@@ -26,7 +26,7 @@ class QuizRepositoryImpl : QuizRepository {
                 Answer(
                     id = 2,
                     value = "Think it’s more important to give them some of your time; work can wait",
-                            personalityTrait = 1
+                    personalityTrait = 1
                 ),
                 Answer(
                     id = 3,

@@ -18,7 +18,7 @@ class QuestionFragment : BaseFragment<FragmentQuestionBinding>() {
         private const val QUESTION_ID = "question_id"
         private const val QUIZ_ID = "quiz_id"
 
-        fun newInstance(quizId:Int, questionId: Int): QuestionFragment {
+        fun newInstance(quizId: Int, questionId: Int): QuestionFragment {
             val bundle = Bundle()
             bundle.putInt(QUIZ_ID, quizId)
             bundle.putInt(QUESTION_ID, questionId)

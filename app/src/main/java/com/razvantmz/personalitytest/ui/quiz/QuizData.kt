@@ -2,7 +2,7 @@ package com.razvantmz.personalitytest.ui.quiz
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.razvantmz.personalitytest.Personality
+import com.razvantmz.personalitytest.enums.Personality
 import com.razvantmz.personalitytest.models.Question
 import com.razvantmz.personalitytest.models.Quiz
 import com.razvantmz.personalitytest.repository.QuizRepository
@@ -19,6 +19,7 @@ class QuizData(private val quizId: Int) : KoinComponent, CoroutineScope {
         const val scopedName = "QuizData"
         const val scopedId = "scopeId"
     }
+
     override val coroutineContext: CoroutineContext by lazy {
         Job() + IO
     }
@@ -41,7 +42,7 @@ class QuizData(private val quizId: Int) : KoinComponent, CoroutineScope {
     val selectedQuestion: LiveData<Question> = _selectedQuestion
 
     fun getQuestionById(questionId: Int): Question? {
-        return quiz.value?.questions?.firstOrNull { question -> question.id == questionId}
+        return quiz.value?.questions?.firstOrNull { question -> question.id == questionId }
     }
 
     private fun fetchQuiz() {
@@ -67,7 +68,7 @@ class QuizData(private val quizId: Int) : KoinComponent, CoroutineScope {
     fun getQuizResult(): Personality {
         val personalityTraitSum =
             quiz.value?.questions?.mapNotNull { question -> question.answers.firstOrNull { answer -> answer.isSelected } }
-            ?.sumOf { selectAnswer -> selectAnswer.personalityTrait } ?: 0
+                ?.sumOf { selectAnswer -> selectAnswer.personalityTrait } ?: 0
         return when {
             personalityTraitSum > 0 -> Personality.Introverted
             personalityTraitSum < 0 -> Personality.Extroverted

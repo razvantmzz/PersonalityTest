@@ -49,7 +49,12 @@ class QuestionViewHolder(
             1f,
             binding.root.context.resources.displayMetrics
         )
-        shape.strokeColor = ColorStateList.valueOf(ContextCompat.getColor(binding.root.context, R.color.answer_border))
+        shape.strokeColor = ColorStateList.valueOf(
+            ContextCompat.getColor(
+                binding.root.context,
+                R.color.answer_border
+            )
+        )
         shape.fillColor = ColorStateList.valueOf(
             (if (isSelected)
                 ContextCompat.getColor(binding.root.context, R.color.selected_answer)

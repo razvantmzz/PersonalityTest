@@ -2,7 +2,7 @@ package com.razvantmz.personalitytest.ui.quiz
 
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.razvantmz.personalitytest.Personality
+import com.razvantmz.personalitytest.enums.Personality
 import com.razvantmz.personalitytest.R
 import com.razvantmz.personalitytest.databinding.FragmentQuizResultsBinding
 import com.razvantmz.personalitytest.ui.base.BaseFragment

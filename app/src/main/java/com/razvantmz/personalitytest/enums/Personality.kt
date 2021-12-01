@@ -1,4 +1,4 @@
-package com.razvantmz.personalitytest
+package com.razvantmz.personalitytest.enums
 
 enum class Personality {
     Introverted,

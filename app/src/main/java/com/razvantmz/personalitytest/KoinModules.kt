@@ -16,10 +16,10 @@ val modules = module {
     single<QuizRepository> { QuizRepositoryImpl() }
 
     viewModel { SplashViewModel() }
-    viewModel { (quizId:Int, questionId:Int) -> QuestionViewModel(quizId, questionId) }
+    viewModel { (quizId: Int, questionId: Int) -> QuestionViewModel(quizId, questionId) }
     viewModel { LandingViewModel() }
-    viewModel { (quizId:Int) -> QuizViewModel(quizId) }
-    viewModel { (quizId:Int) -> QuizResultsViewModel(quizId) }
+    viewModel { (quizId: Int) -> QuizViewModel(quizId) }
+    viewModel { (quizId: Int) -> QuizResultsViewModel(quizId) }
 
     scope(named(QuizData.scopedName)) {
         scoped { (quizId: Int) -> QuizData(quizId) }

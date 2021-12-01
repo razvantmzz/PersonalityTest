@@ -8,7 +8,8 @@ interface QuestionAdapterListener {
     fun onAnswerSelected(item: Answer)
 }
 
-class QuestionAdapter(var items:List<Answer>, listener: QuestionAdapterListener?) : RecyclerView.Adapter<QuestionViewHolder>() {
+class QuestionAdapter(var items: List<Answer>, listener: QuestionAdapterListener?) :
+    RecyclerView.Adapter<QuestionViewHolder>() {
     private val questionViewHolderListener by lazy {
         object : QuestionViewHolderListener {
             override fun onAnswerSelected(item: Answer) {
@@ -29,7 +30,7 @@ class QuestionAdapter(var items:List<Answer>, listener: QuestionAdapterListener?
         return items.count()
     }
 
-    fun updateItems(items:List<Answer>) {
+    fun updateItems(items: List<Answer>) {
         this.items = items
         notifyDataSetChanged()
     }

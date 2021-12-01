@@ -27,7 +27,9 @@ class QuizFragment : BaseFragment<FragmentQuizBinding>() {
             }
             quizViewPager.isUserInputEnabled = false
             nextBtn.setOnClickListener {
-                if (quizViewPager.currentItem == (viewModel.quiz.value?.questions?.count() ?: -1) - 1) {
+                if (quizViewPager.currentItem == (viewModel.quiz.value?.questions?.count()
+                        ?: -1) - 1
+                ) {
                     findNavController().navigate(
                         QuizFragmentDirections.actionQuizFragmentToQuizResultsFragment(
                             viewModel.quizId
