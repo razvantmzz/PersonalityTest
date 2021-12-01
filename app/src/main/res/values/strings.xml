@@ -5,4 +5,6 @@
     <string name="landing_page_start_quiz">Start quiz</string>
     <string name="fragment_quiz_back_btn">Back</string>
     <string name="fragment_quiz_next_btn">Next</string>
+
+    <string name="fragment_quiz_results">Your results:</string>
 </resources>

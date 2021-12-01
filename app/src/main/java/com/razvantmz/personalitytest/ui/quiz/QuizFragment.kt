@@ -27,8 +27,16 @@ class QuizFragment : BaseFragment<FragmentQuizBinding>() {
             }
             quizViewPager.isUserInputEnabled = false
             nextBtn.setOnClickListener {
+                if (quizViewPager.currentItem == (viewModel.quiz.value?.questions?.count() ?: -1) - 1) {
+                    findNavController().navigate(
+                        QuizFragmentDirections.actionQuizFragmentToQuizResultsFragment(
+                            viewModel.quizId
+                        )
+                    )
+                }
                 quizViewPager.currentItem = quizViewPager.currentItem + 1
             }
+
             backBtn.setOnClickListener {
                 quizViewPager.currentItem = quizViewPager.currentItem - 1
             }
@@ -54,7 +62,11 @@ class QuizFragment : BaseFragment<FragmentQuizBinding>() {
     }
 }
 
-class QuizViewPagerAdapter(activity: FragmentActivity, val quizId:Int, var questionList:List<Question>) : FragmentStateAdapter(activity) {
+class QuizViewPagerAdapter(
+    activity: FragmentActivity,
+    val quizId: Int,
+    var questionList: List<Question>
+) : FragmentStateAdapter(activity) {
     override fun getItemCount(): Int {
         return questionList.count()
     }
