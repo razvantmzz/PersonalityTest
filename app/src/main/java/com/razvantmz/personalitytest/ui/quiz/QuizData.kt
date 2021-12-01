@@ -2,6 +2,7 @@ package com.razvantmz.personalitytest.ui.quiz
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.razvantmz.personalitytest.models.Question
 import com.razvantmz.personalitytest.models.Quiz
 import com.razvantmz.personalitytest.repository.QuizRepository
 import kotlinx.coroutines.CoroutineScope
@@ -26,7 +27,16 @@ class QuizData(private val quizId: Int) : KoinComponent, CoroutineScope {
     private val _quiz: MutableLiveData<Quiz> by lazy {
         MutableLiveData()
     }
+
+    init {
+        fetchQuiz()
+    }
+
     val quiz: LiveData<Quiz> = _quiz
+
+    fun getQuestionById(questionId: Int): Question? {
+        return quiz.value?.questions?.firstOrNull { question -> question.id == questionId}
+    }
 
     private fun fetchQuiz() {
         launch {

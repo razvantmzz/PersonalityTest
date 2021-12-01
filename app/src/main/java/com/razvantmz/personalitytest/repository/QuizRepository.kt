@@ -86,6 +86,7 @@ class QuizRepositoryImpl : QuizRepository {
         return listOf(
             question1,
             question2,
+            question3
         )
     }
 }

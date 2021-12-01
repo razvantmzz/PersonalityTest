@@ -1,11 +1,20 @@
 package com.razvantmz.personalitytest.ui.quiz
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.razvantmz.personalitytest.models.Question
+import org.koin.core.parameter.parametersOf
+import org.koin.core.qualifier.named
+import org.koin.java.KoinJavaComponent.getKoin
 
-class QuestionViewModel() : ViewModel() {
+class QuestionViewModel(private val quizId:Int, private val questionId:Int) : ViewModel() {
 
-    var question: Question? = null
+    private val quizData = getKoin().getOrCreateScope(QuizData.scopedId, named(QuizData.scopedName))
+        .get<QuizData> { parametersOf(quizId) }
 
-
+    private val _question: MutableLiveData<Question> by lazy {
+        MutableLiveData<Question>(quizData.getQuestionById(questionId))
+    }
+    val question: LiveData<Question> = _question
 }

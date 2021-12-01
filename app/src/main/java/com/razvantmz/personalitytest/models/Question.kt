@@ -1,4 +1,8 @@
 package com.razvantmz.personalitytest.models
 
-class Question(id:Int, title: String, answers:List<Answer>) {
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+class Question(val id:Int, val title: String, val answers:List<Answer>): Parcelable {
 }

@@ -1,3 +1,7 @@
 package com.razvantmz.personalitytest.models
 
-class Answer(val id:Int, val value:String, val isSelected: Boolean = false)
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+class Answer(val id:Int, val value:String, val isSelected: Boolean = false): Parcelable

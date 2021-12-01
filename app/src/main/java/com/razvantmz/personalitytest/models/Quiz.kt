@@ -1,3 +1,3 @@
 package com.razvantmz.personalitytest.models
 
-class Quiz(id:Int, questions:List<Question>)
+class Quiz(val id:Int, val questions:List<Question>)

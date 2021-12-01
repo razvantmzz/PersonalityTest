@@ -2,6 +2,7 @@ package com.razvantmz.personalitytest
 
 import com.razvantmz.personalitytest.repository.QuizRepository
 import com.razvantmz.personalitytest.repository.QuizRepositoryImpl
+import com.razvantmz.personalitytest.ui.landing.LandingViewModel
 import com.razvantmz.personalitytest.ui.quiz.QuestionViewModel
 import com.razvantmz.personalitytest.ui.quiz.QuizData
 import com.razvantmz.personalitytest.ui.quiz.QuizViewModel
@@ -14,7 +15,8 @@ val modules = module {
     single<QuizRepository> { QuizRepositoryImpl() }
 
     viewModel { SplashViewModel() }
-    viewModel { QuestionViewModel() }
+    viewModel { (quizId:Int, questionId:Int) -> QuestionViewModel(quizId, questionId) }
+    viewModel { LandingViewModel() }
     viewModel { (quizId:Int) -> QuizViewModel(quizId) }
 
     scope(named(QuizData.scopedName)) {
