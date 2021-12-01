@@ -1,12 +1,13 @@
 package com.razvantmz.personalitytest.ui.quiz
 
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.shape.MaterialShapeDrawable
+import com.razvantmz.personalitytest.R
 import com.razvantmz.personalitytest.databinding.ItemListQuizAnswerBinding
 import com.razvantmz.personalitytest.models.Answer
 
@@ -37,11 +38,24 @@ class QuestionViewHolder(
     }
 
     private fun getBackground(isSelected: Boolean): MaterialShapeDrawable {
-        val cornerSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15f, binding.root.context.resources.displayMetrics)
+        val cornerSize = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            15f,
+            binding.root.context.resources.displayMetrics
+        )
         val shape = MaterialShapeDrawable()
-        shape.strokeWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1f, binding.root.context.resources.displayMetrics)
-        shape.strokeColor = ColorStateList.valueOf(Color.BLACK)
-        shape.fillColor = ColorStateList.valueOf((if (isSelected) Color.RED else Color.WHITE))
+        shape.strokeWidth = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            1f,
+            binding.root.context.resources.displayMetrics
+        )
+        shape.strokeColor = ColorStateList.valueOf(ContextCompat.getColor(binding.root.context, R.color.answer_border))
+        shape.fillColor = ColorStateList.valueOf(
+            (if (isSelected)
+                ContextCompat.getColor(binding.root.context, R.color.selected_answer)
+            else ContextCompat.getColor(binding.root.context, R.color.white)
+                    )
+        )
         shape.setCornerSize(cornerSize)
         return shape
     }

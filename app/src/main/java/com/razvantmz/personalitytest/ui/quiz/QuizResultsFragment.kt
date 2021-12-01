@@ -1,5 +1,6 @@
 package com.razvantmz.personalitytest.ui.quiz
 
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.razvantmz.personalitytest.Personality
 import com.razvantmz.personalitytest.R
@@ -19,18 +20,30 @@ class QuizResultsFragment : BaseFragment<FragmentQuizResultsBinding>() {
     }
 
     override fun setUpViews() {
+        binding?.btnContinue?.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     override fun setUpObservers() {
         viewModel.testResult.observe(viewLifecycleOwner) { personality ->
             personality?.let {
-                binding?.result?.text = getString(
-                    when (personality) {
-                        Personality.Introverted -> R.string.fragment_quiz_results_introverted
-                        Personality.Extroverted -> R.string.fragment_quiz_results_extroverted
-                        Personality.IntrovertedExtrovert -> R.string.fragment_quiz_results_introverted_extrovert
-                    }
-                )
+                binding?.apply {
+                    result.text = getString(
+                        when (personality) {
+                            Personality.Introverted -> R.string.fragment_quiz_results_introverted
+                            Personality.Extroverted -> R.string.fragment_quiz_results_extroverted
+                            Personality.IntrovertedExtrovert -> R.string.fragment_quiz_results_introverted_extrovert
+                        }
+                    )
+                    statistics.text = getString(
+                        when (personality) {
+                            Personality.Introverted -> R.string.fragment_quiz_results_introverted_statistic
+                            Personality.Extroverted -> R.string.fragment_quiz_results_extroverted_statistic
+                            Personality.IntrovertedExtrovert -> R.string.fragment_quiz_results_introverted_extrovert_statistic
+                        }
+                    )
+                }
             }
         }
     }

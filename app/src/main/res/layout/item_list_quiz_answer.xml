@@ -8,5 +8,6 @@
     android:layout_marginHorizontal="22dp"
     android:layout_marginVertical="5dp"
     android:padding="12dp"
+    android:textColor="@color/black"
     tools:context=".ui.quiz.QuizFragment">
 </TextView>

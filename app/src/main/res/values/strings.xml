@@ -7,7 +7,12 @@
     <string name="fragment_quiz_next_btn">Next</string>
 
     <string name="fragment_quiz_results">Your results:</string>
+    <string name="fragment_quiz_results_continue">Continue</string>
     <string name="fragment_quiz_results_introverted">Introverted</string>
     <string name="fragment_quiz_results_extroverted">Extroverted</string>
     <string name="fragment_quiz_results_introverted_extrovert">Extroverted Introvert</string>
+
+    <string name="fragment_quiz_results_introverted_statistic">According to research, about 70 percent of CEO\'s describe themselves as introverts. The list of well-known \"Who\'s Who\" of corporate introverted CEOs includes: Bill Gates, Warren Buffet, movie magnate Steven Spielberg, and Sara Lee\'s Brenda Barnes. Introverts make up 40 percent of the population</string>
+    <string name="fragment_quiz_results_extroverted_statistic">Researchers estimate extroverts make up 50 – 74 percent of the population. These “social butterflies” thrive under social stimulation. Extroverts focus on their external environment, the people and activities around them.</string>
+    <string name="fragment_quiz_results_introverted_extrovert_statistic">Also known as ambiverts, extroverted introverts possess a combination of the traits found in the broad personality types of introversion and extraversion (also spelled extroversion)</string>
 </resources>
