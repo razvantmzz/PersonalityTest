@@ -16,6 +16,4 @@ class LandingFragment : BaseFragment<FragmentLandingBinding>() {
 
     override fun setUpObservers() {
     }
-
-
 }

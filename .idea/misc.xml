@@ -9,6 +9,11 @@
         <entry key="..\:/Repo/PersonalityTest/app/src/main/res/drawable/ic_splash.xml" value="0.13055555555555556" />
         <entry key="..\:/Repo/PersonalityTest/app/src/main/res/layout/activity_main.xml" value="0.2289156626506024" />
         <entry key="..\:/Repo/PersonalityTest/app/src/main/res/layout/fragment_landing.xml" value="0.24265450861195542" />
+        <entry key="..\:/Repo/PersonalityTest/app/src/main/res/layout/fragment_question.xml" value="0.24265450861195542" />
+        <entry key="..\:/Repo/PersonalityTest/app/src/main/res/layout/fragment_quiz.xml" value="0.23581560283687944" />
+        <entry key="..\:/Repo/PersonalityTest/app/src/main/res/layout/item_list_quiz_answer.xml" value="0.1" />
+        <entry key="..\:/Repo/PersonalityTest/app/src/main/res/layout/item_list_quiz_answert.xml" value="0.24265450861195542" />
+        <entry key="..\:/Repo/PersonalityTest/app/src/main/res/layout/item_list_quiz_question.xml" value="0.24265450861195542" />
         <entry key="..\:/Repo/PersonalityTest/app/src/main/res/layout/splash_fragment.xml" value="0.18" />
       </map>
     </option>
