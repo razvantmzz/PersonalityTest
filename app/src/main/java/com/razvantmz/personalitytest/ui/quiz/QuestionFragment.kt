@@ -35,6 +35,7 @@ class QuestionFragment : BaseFragment<FragmentQuestionBinding>() {
     private val listener by lazy {
         object : QuestionAdapterListener {
             override fun onAnswerSelected(item: Answer) {
+                viewModel.selectAnswer(item.id)
             }
         }
     }

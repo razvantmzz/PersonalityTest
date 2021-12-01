@@ -1,9 +1,12 @@
 package com.razvantmz.personalitytest.ui.quiz
 
+import android.content.res.ColorStateList
 import android.graphics.Color
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.shape.MaterialShapeDrawable
 import com.razvantmz.personalitytest.databinding.ItemListQuizAnswerBinding
 import com.razvantmz.personalitytest.models.Answer
 
@@ -12,7 +15,7 @@ interface QuestionViewHolderListener {
 }
 
 class QuestionViewHolder(
-    val binding: ItemListQuizAnswerBinding,
+    private val binding: ItemListQuizAnswerBinding,
     private val listener: QuestionViewHolderListener?
 ) : RecyclerView.ViewHolder(binding.root) {
     var item: Answer? = null
@@ -29,8 +32,18 @@ class QuestionViewHolder(
         this.item = answer
         binding.answer.apply {
             text = answer.value
-            setBackgroundColor(if (answer.isSelected) Color.RED else Color.WHITE)
+            background = getBackground(answer.isSelected)
         }
+    }
+
+    private fun getBackground(isSelected: Boolean): MaterialShapeDrawable {
+        val cornerSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15f, binding.root.context.resources.displayMetrics)
+        val shape = MaterialShapeDrawable()
+        shape.strokeWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1f, binding.root.context.resources.displayMetrics)
+        shape.strokeColor = ColorStateList.valueOf(Color.BLACK)
+        shape.fillColor = ColorStateList.valueOf((if (isSelected) Color.RED else Color.WHITE))
+        shape.setCornerSize(cornerSize)
+        return shape
     }
 
     companion object {

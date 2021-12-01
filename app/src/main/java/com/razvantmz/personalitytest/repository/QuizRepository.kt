@@ -10,7 +10,7 @@ interface QuizRepository {
 
 class QuizRepositoryImpl : QuizRepository {
     override suspend fun getQuiz(id: Int): Quiz {
-        return Quiz(id, getQuestions())
+        return Quiz(id, "Introvert or extrovert", getQuestions())
     }
 
     private fun getQuestions(): List<Question> {

@@ -25,7 +25,10 @@ class QuizFragment : BaseFragment<FragmentQuizBinding>() {
     override fun setUpObservers() {
         viewModel.quiz.observe(viewLifecycleOwner) {
             val adapter = QuizViewPagerAdapter(requireActivity(), it.id, it.questions)
-            binding?.quizViewPager?.adapter = adapter
+            binding?.apply {
+                quizViewPager.adapter = adapter
+                toolbar.title = it.title
+            }
         }
     }
 }

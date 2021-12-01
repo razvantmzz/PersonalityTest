@@ -45,4 +45,12 @@ class QuizData(private val quizId: Int) : KoinComponent, CoroutineScope {
             }
         }
     }
+
+    fun selectAnswer(questionId: Int, answerId: Int): Question? {
+        return getQuestionById(questionId)?.apply {
+            answers.forEach { answer ->
+                answer.isSelected = answer.id == answerId
+            }
+        }
+    }
 }

@@ -9,7 +9,6 @@ import org.koin.core.qualifier.named
 import org.koin.java.KoinJavaComponent.getKoin
 
 class QuestionViewModel(private val quizId:Int, private val questionId:Int) : ViewModel() {
-
     private val quizData = getKoin().getOrCreateScope(QuizData.scopedId, named(QuizData.scopedName))
         .get<QuizData> { parametersOf(quizId) }
 
@@ -17,4 +16,8 @@ class QuestionViewModel(private val quizId:Int, private val questionId:Int) : Vi
         MutableLiveData<Question>(quizData.getQuestionById(questionId))
     }
     val question: LiveData<Question> = _question
+
+    fun selectAnswer(id: Int) {
+        _question.value = quizData.selectAnswer(questionId, id)
+    }
 }
