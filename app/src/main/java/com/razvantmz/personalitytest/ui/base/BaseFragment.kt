@@ -22,6 +22,8 @@ abstract class BaseFragment<B: ViewBinding> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpViews()
+        setUpObservers()
     }
 
     abstract fun setBinding(): B

@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Repo/PersonalityTest/app/src/main/res/drawable/bg_primary_button.xml" value="0.13055555555555556" />
         <entry key="..\:/Repo/PersonalityTest/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.13055555555555556" />
         <entry key="..\:/Repo/PersonalityTest/app/src/main/res/drawable/ic_image2vector.xml" value="0.13055555555555556" />
         <entry key="..\:/Repo/PersonalityTest/app/src/main/res/drawable/ic_splash.xml" value="0.13055555555555556" />
         <entry key="..\:/Repo/PersonalityTest/app/src/main/res/layout/activity_main.xml" value="0.2289156626506024" />
+        <entry key="..\:/Repo/PersonalityTest/app/src/main/res/layout/fragment_landing.xml" value="0.24265450861195542" />
         <entry key="..\:/Repo/PersonalityTest/app/src/main/res/layout/splash_fragment.xml" value="0.18" />
       </map>
     </option>

@@ -1,14 +1,11 @@
 package com.razvantmz.personalitytest.ui.splashscreen
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.razvantmz.personalitytest.R
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.razvantmz.personalitytest.databinding.SplashFragmentBinding
 import com.razvantmz.personalitytest.ui.base.BaseFragment
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SplashFragment : BaseFragment<SplashFragmentBinding>() {
     override fun setBinding(): SplashFragmentBinding {
@@ -16,8 +13,16 @@ class SplashFragment : BaseFragment<SplashFragmentBinding>() {
     }
 
     override fun setUpViews() {
+        navigateToLandingScreen()
     }
 
     override fun setUpObservers() {
+    }
+
+    private fun navigateToLandingScreen() {
+        lifecycleScope.launch {
+            delay(1500)
+            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLandingFragment())
+        }
     }
 }

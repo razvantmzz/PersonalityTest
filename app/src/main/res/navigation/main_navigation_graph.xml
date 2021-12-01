@@ -9,5 +9,14 @@
         android:id="@+id/splashFragment"
         android:name="com.razvantmz.personalitytest.ui.splashscreen.SplashFragment"
         android:label="splash_fragment"
-        tools:layout="@layout/splash_fragment" />
+        tools:layout="@layout/splash_fragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_landingFragment"
+            app:destination="@id/landingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="com.razvantmz.personalitytest.ui.landing.LandingFragment"
+        android:label="fragment_landing"
+        tools:layout="@layout/fragment_landing" />
 </navigation>
